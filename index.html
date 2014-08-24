@@ -36,11 +36,15 @@
   </style>
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
 
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+  <!--
   <script src="plangular.js"></script>
+  -->
+  <script src="app.js"></script>
 
 </head>
-<body ng-app="plangular" plangular data-src="https://soundcloud.com/bananair/windowlicker">
+<body ng-app="app" ng-controller="GifCtrl">
 
   <div class="min-h100 mobile-table center">
     <div class="mobile-table-cell">
@@ -65,7 +69,7 @@
   </div>
 
 
-  <div class="absolute t0 r0 b0 l0 pointer" ng-hide="player.playing" ng-click="player.play(track)"></div>
+  <div class="absolute t0 r0 b0 l0 pointer" ng-hide="player.playing" ng-click="play()"></div>
   <div class="absolute t0 r0 b0 l0 pointer" ng-hide="!player.playing" ng-click="player.pause()"></div>
   <div ng-show="player.playing" class="h5 leading-3 right-align p1 mid-gray">
     <a href="https://twitter.com/intent/tweet?text=Gifolio:&url=http://jxnblk.github.io/gifolio&via=jxnblk" target="_blank" class="button button-small mr1 button-box-gray">
@@ -77,5 +81,14 @@
     Music by Aphex Twin
   </div>
 
+  <div id="player"></div>
+  <pre>currentTime: {{ currentTime }}
+  {{ player | json }}
+  </pre>
+    <!--
+    src="//www.youtube.com/embed/FATTzbm78cc?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+    -->
+  <script>
+  </script>
 </body>
 </html>
