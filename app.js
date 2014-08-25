@@ -1,35 +1,49 @@
-// Youtube player app
+
+'use strict';
 
 
 var app = angular.module('app', []);
 
+var player;
+
 function onYouTubeIframeAPIReady() {
-  console.log('player api ready');
+  console.log('G I F O L I O');
   player = new YT.Player('player', {
-    height: '400',
-    width: '300',
+    height: '150',
+    width: '200',
     videoId: 'FATTzbm78cc',
     events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
+      'onReady': onPlayerReady
     }
   });
 }
+
 function onPlayerReady(event) {
-  console.log('player ready');
-}
-function onPlayerStateChange() {
+  console.log('ready :)');
 }
 
-app.controller('GifCtrl', ['$scope', function($scope) {
-  $scope.player = player;
-  //$scope.currentTime = $scope.player.getCurrentTime() || null;
+app.controller('GifCtrl', ['$scope', '$interval', function($scope, $interval) {
+
+  $scope.player = {
+    playing: false
+  };
+  $scope.currentTime = 0;
+  $scope.youtube = player;
 
   $scope.play = function() {
-    console.log('play', player);
+    if (!player) return false;
     player.playVideo();
+    $scope.player.playing = true;
+    $scope.youtube = player;
+    $interval(function() {
+      $scope.currentTime = Math.floor(1000 * player.getCurrentTime());
+    }, 200, 0, false);
   };
 
-  //$scope.player.playing = player.getPlayerState() == 1 ? true : false;
+  $scope.pause = function() {
+    player.pauseVideo();
+    $scope.player.playing = false;
+  };
  
 }]);
+

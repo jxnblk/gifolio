@@ -70,7 +70,7 @@
 
 
   <div class="absolute t0 r0 b0 l0 pointer" ng-hide="player.playing" ng-click="play()"></div>
-  <div class="absolute t0 r0 b0 l0 pointer" ng-hide="!player.playing" ng-click="player.pause()"></div>
+  <div class="absolute t0 r0 b0 l0 pointer" ng-hide="!player.playing" ng-click="pause()"></div>
   <div ng-show="player.playing" class="h5 leading-3 right-align p1 mid-gray">
     <a href="https://twitter.com/intent/tweet?text=Gifolio:&url=http://jxnblk.github.io/gifolio&via=jxnblk" target="_blank" class="button button-small mr1 button-box-gray">
       <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
@@ -81,14 +81,9 @@
     Music by Aphex Twin
   </div>
 
-  <div id="player"></div>
-  <pre>currentTime: {{ currentTime }}
-  {{ player | json }}
-  </pre>
-    <!--
-    src="//www.youtube.com/embed/FATTzbm78cc?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
-    -->
-  <script>
-  </script>
+  <div style="display:none">
+    <div id="player"></div>
+  </div>
+
 </body>
 </html>
