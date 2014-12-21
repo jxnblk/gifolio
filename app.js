@@ -9,9 +9,10 @@ var player;
 function onYouTubeIframeAPIReady() {
   console.log('G I F O L I O');
   player = new YT.Player('player', {
-    height: '150',
-    width: '200',
+    height: '75',
+    width: '100',
     videoId: 'FATTzbm78cc',
+    //videoId: 'iZ8sZXFN6jc',
     events: {
       'onReady': onPlayerReady
     }
